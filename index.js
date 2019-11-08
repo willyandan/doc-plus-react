@@ -1,5 +1,5 @@
 import {AppRegistry} from 'react-native';
-import CreateUser from './src'
 import {name as appName} from './app.json';
+import Routes from './src'
 
-AppRegistry.registerComponent(appName, () => CreateUser);
+AppRegistry.registerComponent(appName, () => Routes);

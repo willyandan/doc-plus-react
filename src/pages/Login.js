@@ -9,7 +9,8 @@ import {
   Image,
   AsyncStorage
 } from 'react-native';
-import api from '../services/api'
+import api from '../services/api';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 const login = async (email, password) => {
   console.log('passou')
@@ -26,7 +27,7 @@ const login = async (email, password) => {
 
 }
 
-const App = () => {
+const App = (navigation) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -65,18 +66,22 @@ const App = () => {
           onChangeText={(val)=>setPassword(val)}
         ></TextInput>
         <TouchableOpacity style={styles.btn} onPress={pressLogin}>
-          <Text style={styles.btnLabel}>Logar</Text>
+          <Text style={styles.btnLabel} onPress={() => navigation.navigate('Home')}>Logar</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.divider}></View>
       <View style={styles.form}>
         <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnLabel}>Cadastrar-se</Text>
+          <Text style={styles.btnLabel} onPress={() => navigation.navigate('Cadastro')}>Cadastrar-se</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
+
+App.navigationOptions = {
+  title: 'Login'
+}
 
 const styles = StyleSheet.create({
   container:{

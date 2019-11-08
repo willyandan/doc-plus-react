@@ -6,11 +6,11 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity
-} from 'react-native'
-import Card from '../components/Card'
-import SearchInput from '../components/SearchInput'
+} from 'react-native';
+import Card from '../components/Card';
+import SearchInput from '../components/SearchInput';
 
-const SearchPage = ()=> {
+const SearchPage = ({ navigation })=> {
   
   const results = [
     'OPA'
@@ -44,6 +44,10 @@ const SearchPage = ()=> {
       </View>
     </SafeAreaView>
   )
+}
+
+SearchPage.navigationOptions = {
+  title: 'Home'
 }
 
 const styles = StyleSheet.create({

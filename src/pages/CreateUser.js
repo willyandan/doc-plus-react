@@ -10,14 +10,14 @@ import {
   Picker
 } from 'react-native';
 import DateTimePicker from "react-native-modal-datetime-picker";
-import api from '../services/api'
+import api from '../services/api';
 
 const loadAgreements = async ()=>{
   const res= await api.get('/api/agreement/all')
   return res.data
 }
 
-const CreateUser = () => {
+const CreateUser = ({navigation}) => {
   const [isDateTimePickerVisible, setDateTimePickerVisible] = useState(false)
   const [name, setName] = useState()
   const [birthDay, setBirthDay] = useState()
@@ -226,13 +226,17 @@ const CreateUser = () => {
           </Picker>
 
           <TouchableOpacity style={styles.btn} onPress={createAcc}>
-            <Text style={styles.btnLabel}>Cadastrar-se</Text>
+            <Text style={styles.btnLabel} onPress={() => navigation.navigate('Home')}>Cadastrar-se</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
     </ScrollView>
   );
 };
+
+CreateUser.navigationOprions = {
+  title: 'Cadastro'
+}
 
 const styles = StyleSheet.create({
   title:{

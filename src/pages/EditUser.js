@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import DateTimePicker from "react-native-modal-datetime-picker";
 
-const EditUser = () => {
+const EditUser = (navigation) => {
   
   const [isDateTimePickerVisible, setDateTimePickerVisible] = useState(false)
 
@@ -131,6 +131,10 @@ const EditUser = () => {
   );
 };
 
+EditUser.navigationOptions ={
+  title: 'Edit',
+}
+
 const styles = StyleSheet.create({
   title:{
     fontSize: 43
@@ -184,3 +188,4 @@ const styles = StyleSheet.create({
 });
 
 export default EditUser;
+
